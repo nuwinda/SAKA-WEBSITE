@@ -6,66 +6,181 @@ const U = 'https://images.unsplash.com'
 
 const fade = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } }
 
+const premiumTiers = [
+  {
+    id: 'silver',
+    name: 'Silver',
+    tagline: 'Elegant Foundations',
+    price: 'LKR 285,000',
+    icon: '◆',
+    color: '#C0C0C0',
+    gradient: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(192,192,192,0.1) 100%)',
+    highlights: [
+      '17 x 24 Main magazine album( 60 pages )',
+      '6 x 8 Thank you cards (200 pcs)',
+      '20 x 30 Enlargement (4 pcs)',
+      '12 x 18 Wedding Group Enlargement (2 pcs)',
+      '8 x 24 Family Album',
+      'Preshoot Photo session ( 3 Coustumes, Slide show, 8 x 24 Preshoot Magazine Album )',
+      'Wedding Cinematography ( 3 min Lovestory Video, 55 around Documentary Video, Wedding trailer)',
+    ],
+    description: "Designed for couples who don't want to miss a single memory. We begin at the hotel, capturing the quiet, candid anticipation as the bride and groom get ready. Your day includes an exclusive 10-hour timeline, featuring a dedicated main photo session at a location of your choice, and seamless, continuous coverage of both your ceremony and reception.",
+  },
+  {
+    id: 'gold',
+    name: 'Gold',
+    tagline: 'Luxury Experience',
+    price: 'LKR 365, 000',
+    icon: '◆',
+    color: '#FFD700',
+    gradient: 'linear-gradient(135deg, rgba(255,215,0,0.15) 0%, rgba(255,255,255,0.1) 100%)',
+    highlights: [
+      '12 x 24 Magazine album (60 pages)',
+      '6 x 8 Thank you cards (200 pcs)',
+      '24 x 36 Enlargement (4 pcs)',
+      '12 x 18 Wedding Group Enlargement (2 pcs)',
+      '8 x 24 Family Album',
+      'Preshoot Photo session ( 3 coustumes, slide show, 8 x 24 Preshoot Magazine Album )',
+      'Preshoot Video with drone ( 3 min Lovestory Video with HD quality ',
+      'Wedding Cinematography ( 3 min Lovestory Video, 55 around Documentary Video, Wedding trailer) Full HD quality',
+    ],
+    description: "FFrom the quiet anticipation of getting ready at your hotel to the final dance of the reception, your day is covered in full. This package includes 10 hours of exclusive coverage, a dedicated photo session at a preferred location, and complete ceremony and reception documentation. Afterward, receive your entire collection as beautifully edited, high-resolution soft copies ready to cherish forever.",
+    featured: true,
+  },
+  {
+    id: 'platinum',
+    name: 'Platinum',
+    tagline: 'Ultimate Perfection',
+    price: 'LKR 435,000',
+    icon: '◆',
+    color: '#E5E4E2',
+    gradient: 'linear-gradient(135deg, rgba(229,228,226,0.15) 0%, rgba(255,255,255,0.1) 100%)',
+    highlights: [
+      '17 x24 Main magazine album (60 pages)',
+      '6 x 8 Thank you cards (200 pcs)',
+      '24 x 36 Enlargement (4 pcs)',
+      '12 x18 Wedding Group Enlargement (2 pcs)',
+      '8 x 24 family Album',
+      'Preshoot Photo session ( 3 Coustumes, Slide show, 8 x 24 Preshoot Magazine Album )',
+      'Preshot Video with drone ( 3 min Lovestory Video with HD quality )',
+      'Wedding Cinematography ( 3 min Lovestory Video, 55 around Documentary Video, Wedding trailer) Full HD quality',
+      'Homecoming cinematography ( 3 min Homecoming Video with HD quality, Dcoumentary Video with FullHD quality, Homecoming Trailer Full HD quality )',
+    ],
+    description: 'Experience ultimate peace of mind with 10 hours of exclusive coverage, capturing every moment from the morning preparations at your hotel to the final moments of the reception. This premium package features a dedicated main photo session at a preferred location and includes your entire collection as beautifully edited, high-resolution soft copies, ready to print and cherish forever.',
+  },
+]
+
 const packages = [
   {
-    id: 'intimate',
-    name: 'Intimate',
+    id: 'aGroup',
+    name: 'A Group',
     tagline: 'For quiet, beautiful beginnings',
-    price: 'From $2,400',
-    duration: 'Up to 6 hours',
-    image: `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
+    price: 'From LKR 115, 000',
+    duration: 'Up to 8 hours',
+    image: '/images/id3.jpg',
     includes: [
-      '6 hours of coverage',
-      'One photographer',
-      '400+ edited images',
-      'Private online gallery',
-      'Print release included',
+      '8 x 24 Magazine album (50 pages)',
+      '6 x 6 Thank you cards (100 pcs)',
+      '16 x 24 Enlargement (1 pcs)',
+      '12 x 18 enlargement (1 pcs)',
+      'Exclusive 10-hour coverage',
+      'Wedding Main photo session at a preferred location',
+      'Wedding Ceremony and reception coverage',
+      'Edited high-resolution soft copies',
     ],
     ideal: 'Elopements & intimate ceremonies',
   },
   {
-    id: 'full',
-    name: 'Full Day',
+    id: 'bGroup',
+    name: 'B Group',
     tagline: 'Every chapter of your day',
-    price: 'From $4,200',
-    duration: 'Up to 12 hours',
-    image: `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
+    price: 'From LKR 130, 000',
+    duration: 'Up to 10 hours',
+    image: '/images/id5.jpg',
     includes: [
-      '12 hours of coverage',
-      'Two photographers',
-      '800+ edited images',
-      'Private online gallery',
-      'Engagement session',
-      'Fine art album (optional add-on)',
+      '12 x 24 Magazine album (50 pages)',
+      '5 x 8 Thank you cards (100 pcs)',
+      '16 x 24 Enlargement (2 pcs)',
+      '12 x 18 enlargement (2 pcs)',
+      'Exclusive 10-hour coverage',
+      'Wedding main photo session at a preferred location',
+      'Bride & Groom getting ready coverage at the hotel',
+      'Wedding Ceremony and Reception coverage',
+      'Edited high-resolution soft copies',
     ],
     ideal: 'Full weddings & celebrations',
     featured: true,
   },
   {
-    id: 'destination',
-    name: 'Destination',
+    id: 'cGroup',
+    name: 'C Group',
     tagline: 'Wherever love takes you',
-    price: 'From $6,800',
-    duration: 'Multi-day',
-    image: `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
+    price: 'From LKR 159, 000',
+    duration: 'Full day coverage',
+    image: '/images/id6.jpg',
     includes: [
-      'Full day coverage',
-      'Two photographers',
-      '1,000+ edited images',
-      'Pre-wedding session',
-      'Private online gallery',
-      'Travel included worldwide',
-      'Luxury fine art album',
+      '12 x 30 Magazine album (50 pages)',
+      '5 x 8 Thank you cards (150 pcs)',
+      '16 x 24 Enlargement (4 pcs)',
+      'Exclusive multi-day coverage',
+      'Wedding main photo session at a preferred location',
+      'Bride & Groom getting ready coverage at the hotel',
+      'Wedding ceremony and reception coverage',
+      'Edited high-resolution soft copies',
+      'Pre-shoot photo session with 3 outfit, Pre shoot slide show (without transport)', 
     ],
     ideal: 'Destination & international weddings',
+  },
+  {
+    id: 'dGroup',
+    name: 'D Group',
+    tagline: 'Celebrate the moments that matter',
+    price: 'From LKR 169,000',
+    duration: 'Full day coverage + pre-shoot',
+    image: '/images/id9.jpg',
+    includes: [
+      '16 x 24 Magazine album (60 pages)',
+      '5 x 8 Thank you cards (150 pcs)',
+      '16 x 24 Enlargement (4 pcs)',
+      '8 x 24 Family Album',
+      'Exclusive 10 hours coverage',
+      'Wedding main photo session at a preferred location',
+      'Bride & Groom getting ready coverage at the hotel',
+      'Wedding ceremony and reception coverage',
+      'Edited high-resolution soft copies',
+      'Pre-shoot photo session with 3 outfit, Pre shoot slide show (without transport)',
+    ],
+    ideal: 'Ceremonies & receptions only',
+  },
+  {
+    id: 'eGroup',
+    name: 'E Group',
+    tagline: 'Comprehensive coverage with extra touch',
+    price: 'From LKR 198,000',
+    duration: 'Full day coverage + pre-shoot',
+    image: '/images/id2.jpg',
+    includes: [
+      '17 x 24 Magazine album (60 pages)',
+      '5 x 8 Thank you cards (200 pcs)',
+      '16 x 24 Enlargement (4 pcs)',
+      '8 x 24 Family Album',
+      'Exclusive 10 hours coverage',
+      'Wedding main photo session at a preferred location',
+      'Bride & Groom getting ready coverage at the hotel',
+      'Wedding ceremony and reception coverage',
+      'Edited high-resolution soft copies',
+      'Pre-shoot photo session with 3 outfit, Pre shoot slide show (without transport)',
+      '8 x 24 Preshoot Magazine Album',
+    ],
+    ideal: 'Weddings with pre-event content',
   },
 ]
 
 const addons = [
-  { name: 'Fine Art Album', desc: 'Handcrafted linen albums, printed on archival paper. A family heirloom.', price: 'From $650' },
-  { name: 'Engagement Session', desc: 'A relaxed portrait session before the big day. Perfect for getting comfortable in front of the lens.', price: '$380' },
-  { name: 'Second Photographer', desc: 'A second artistic eye for full coverage of simultaneous moments.', price: '$400/day' },
-  { name: 'Rush Delivery', desc: 'Receive your full gallery within 2 weeks of your wedding day.', price: '$280' },
+  { name: 'Fine Art Album', desc: 'Handcrafted linen albums, printed on archival paper. A family heirloom.', price: 'From LKR 20,000' },
+  { name: 'Engagement Session', desc: 'A relaxed portrait session before the big day. Perfect for getting comfortable in front of the lens.', price: 'LKR 30,000' },
+  { name: 'Second Photographer', desc: 'A second artistic eye for full coverage of simultaneous moments.', price: 'LKR 40,000' },
+  { name: 'Rush Delivery', desc: 'Receive your full gallery within 2 weeks of your wedding day.', price: 'LKR 28,000' },
 ]
 
 const process = [
@@ -94,9 +209,113 @@ export default function Offerings() {
         </p>
       </motion.div>
 
-      {/* Packages */}
-      <section style={{ padding: '0 clamp(1rem, 5vw, 5rem) clamp(3rem, 8vw, 6rem)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(1rem, 2vw, 1.5rem)', alignItems: 'stretch' }} className="pkg-grid">
+      {/* Premium Tiers */}
+      <section style={{ padding: '0 clamp(1rem, 5vw, 5rem) clamp(4rem, 10vw, 8rem)', position: 'relative', zIndex: 2 }}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 8vw, 4rem)' }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 1.8vw, 0.65rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1rem', fontWeight: 500 }}>Signature Collections</p>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem, 5vw, 3.5rem)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.2 }}>Premium Tiers</h2>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1.5rem, 3vw, 2.5rem)', alignItems: 'stretch' }} className="tier-grid">
+          {premiumTiers.map((tier, i) => (
+            <motion.div key={tier.id} variants={fade} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.8, delay: i * 0.15 }}
+              style={{
+                background: tier.gradient,
+                border: `2px solid ${tier.color}`,
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'column',
+                padding: 'clamp(2rem, 4vw, 2.5rem)',
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: tier.featured ? 'scale(1.04)' : 'scale(1)',
+                zIndex: tier.featured ? 10 : 1,
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget;
+                el.style.borderColor = tier.color;
+                el.style.boxShadow = `0 20px 60px rgba(${tier.color === '#FFD700' ? '255, 215, 0' : tier.color === '#C0C0C0' ? '192, 192, 192' : '229, 228, 226'}, 0.25)`;
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget;
+                el.style.boxShadow = 'none';
+              }}
+            >
+              {tier.featured && (
+                <div style={{
+                  position: 'absolute',
+                  top: -15,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: `linear-gradient(135deg, ${tier.color} 0%, rgba(255,215,0,0.8) 100%)`,
+                  padding: 'clamp(0.3rem, 0.8vw, 0.5rem) clamp(1rem, 2vw, 1.5rem)',
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: 'clamp(0.5rem, 1.2vw, 0.6rem)',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'var(--black)',
+                  whiteSpace: 'nowrap',
+                  fontWeight: 600,
+                  boxShadow: `0 10px 30px rgba(255, 215, 0, 0.3)`,
+                }}>
+                  ★ Most Luxurious ★
+                </div>
+              )}
+
+              <div style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', color: tier.color, marginBottom: '1rem', opacity: 0.8 }}>{tier.icon}</div>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 3.5vw, 2rem)', fontWeight: 300, color: 'var(--cream)', marginBottom: '0.5rem' }}>{tier.name}</h3>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)', color: tier.color, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>{tier.tagline}</p>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.7rem, 1.5vw, 0.78rem)', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>{tier.description}</p>
+              </div>
+
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.7rem', marginBottom: '2rem', flex: 1 }}>
+                {tier.highlights.map(item => (
+                  <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                    <span style={{ color: tier.color, marginTop: '0.2rem', flexShrink: 0, fontSize: '0.5rem' }}>●</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.68rem, 1.3vw, 0.75rem)', color: 'var(--text-secondary)', letterSpacing: '0.01em', lineHeight: 1.5 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'stretch', marginTop: 'auto', borderTop: `1px solid ${tier.color}33`, paddingTop: '1.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.2rem, 3vw, 1.5rem)', color: tier.color, fontWeight: 400 }}>{tier.price}</p>
+                <Link to="/contact" style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: 'clamp(0.6rem, 1.2vw, 0.68rem)',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: tier.color,
+                  background: tier.featured ? `rgba(255,215,0,0.1)` : 'transparent',
+                  border: `1.5px solid ${tier.color}`,
+                  padding: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                  textAlign: 'center',
+                  transition: 'all 0.3s',
+                  fontWeight: 500,
+                }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget;
+                    el.style.background = `rgba(${tier.color === '#FFD700' ? '255, 215, 0' : tier.color === '#C0C0C0' ? '192, 192, 192' : '229, 228, 226'}, 0.15)`;
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget;
+                    el.style.background = tier.featured ? `rgba(255,215,0,0.1)` : 'transparent';
+                  }}
+                >Inquire Now</Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Additional Packages Section */}
+      <section style={{ padding: '0 clamp(1rem, 5vw, 5rem) clamp(4rem, 10vw, 8rem)', marginTop: 'clamp(2rem, 8vw, 5rem)' }}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 8vw, 4rem)' }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 1.8vw, 0.65rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1rem' }}>More Options</p>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem, 5vw, 3rem)', fontWeight: 300, color: 'var(--cream)' }}>Additional Collections</h2>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(1rem, 2vw, 1.5rem)', alignItems: 'stretch' }} className="pkg-grid">
           {packages.map((pkg, i) => (
             <motion.div key={pkg.id} variants={fade} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.8, delay: i * 0.12 }}
               style={{
@@ -218,7 +437,7 @@ export default function Offerings() {
         <motion.div variants={fade} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.9 }}>
           <p style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(0.75rem, 1.8vw, 0.85rem)', fontStyle: 'italic', color: 'var(--gold)', letterSpacing: '0.08em', marginBottom: '1.5rem' }}>Ready to begin?</p>
           <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem, 4vw, 3.5rem)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.2, marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)', padding: '0 1rem' }}>
-            Dates for 2025 & 2026<br />are filling quickly
+            Dates for 2026 & 2027<br />are filling quickly
           </h2>
           <Link to="/contact" style={{
             display: 'inline-block', padding: 'clamp(0.8rem, 2vw, 1rem) clamp(2rem, 4vw, 3rem)',
@@ -235,9 +454,11 @@ export default function Offerings() {
       <style>{`
         @media (max-width: 1024px) {
           .pkg-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .tier-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 640px) {
           .pkg-grid { grid-template-columns: 1fr !important; }
+          .tier-grid { grid-template-columns: 1fr !important; }
           .addon-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

@@ -158,8 +158,8 @@ export default function Home() {
           <p style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.1rem, 2.5vw, 1.65rem)', fontWeight: 300, lineHeight: 1.75, color: 'var(--cream-muted)', fontStyle: 'italic', marginBottom: '2rem' }}>
             We didn't just get photographs — we got back our entire wedding day, every emotion frozen perfectly in time. Saka has an extraordinary gift.
           </p>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gold)' }}>Ananya & Rohan</p>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.65rem)', letterSpacing: '0.1em', color: 'var(--text-muted)', marginTop: '0.4rem' }}>Colombo, Sri Lanka</p>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gold)' }}>Wikum & Sachini</p>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.65rem)', letterSpacing: '0.1em', color: 'var(--text-muted)', marginTop: '0.4rem' }}>Kurunegala, Sri Lanka</p>
         </motion.div>
       </section>
 

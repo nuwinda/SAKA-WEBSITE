@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const U = 'https://images.unsplash.com'
 
-const categories = ['All', 'Ceremony', 'Reception', 'Portraits', 'Details', 'Destination']
+const categories = ['All', 'Traditional', 'Engagement', 'Portraits', 'Events', 'Destination']
 
 // Album data: 10 images per couple
 const coupleAlbums: Record<string, { couple: string; location: string; year: string; images: string[] }> = {
@@ -142,17 +142,17 @@ const coupleAlbums: Record<string, { couple: string; location: string; year: str
 }
 
 const works = [
-  { id: 1, cat: 'Ceremony', src: '/images/id1.jpg', couple: 'Sanka & Dev', location: 'Colombo, Sri Lanka', year: '2026', aspect: '3/4' },
-  { id: 2, cat: 'Portraits', src: '/images/id2.jpg', couple: 'Priya & Kai', location: 'Galle, Sri Lanka', year: '2025', aspect: '3/4' },
-  { id: 3, cat: 'Reception', src: '/images/id3.jpg', couple: 'Nisha & Arjun', location: 'Kandy, Sri Lanka', year: '2024', aspect: '3/4' },
+  { id: 1, cat: 'Traditional', src: '/images/id1.jpg', couple: 'Sanka & Dev', location: 'Colombo, Sri Lanka', year: '2026', aspect: '3/4' },
+  { id: 2, cat: 'Engagement', src: '/images/id2.jpg', couple: 'Priya & Kai', location: 'Galle, Sri Lanka', year: '2025', aspect: '3/4' },
+  { id: 3, cat: 'Traditional', src: '/images/id3.jpg', couple: 'Nisha & Arjun', location: 'Kandy, Sri Lanka', year: '2024', aspect: '3/4' },
   { id: 4, cat: 'Destination', src: '/images/id4.jpg', couple: 'Sophie & Malik', location: 'Maldives', year: '2025', aspect: '3/4' },
-  { id: 5, cat: 'Details', src: '/images/id5.jpg', couple: 'Zara & Ishan', location: 'Sigiriya, Sri Lanka', year: '2024', aspect: '3/4' },
-  { id: 6, cat: 'Portraits', src: '/images/id6.jpg', couple: 'Maya & Rohan', location: 'Colombo, Sri Lanka', year: '2025', aspect: '3/4' },
-  { id: 7, cat: 'Ceremony', src: '/images/id7.jpg', couple: 'Leila & Soren', location: 'Bali, Indonesia', year: '2025', aspect: '3/4' },
-  { id: 8, cat: 'Reception', src: '/images/id8.jpg', couple: 'Ananya & Vikram', location: 'Negombo, Sri Lanka', year: '2024', aspect: '3/4' },
+  { id: 5, cat: 'Events', src: '/images/id5.jpg', couple: 'Zara & Ishan', location: 'Sigiriya, Sri Lanka', year: '2024', aspect: '3/4' },
+  { id: 6, cat: 'Engagement', src: '/images/id6.jpg', couple: 'Maya & Rohan', location: 'Colombo, Sri Lanka', year: '2025', aspect: '3/4' },
+  { id: 7, cat: 'Traditional', src: '/images/id7.jpg', couple: 'Leila & Soren', location: 'Bali, Indonesia', year: '2025', aspect: '3/4' },
+  { id: 8, cat: 'Events', src: '/images/id8.jpg', couple: 'Ananya & Vikram', location: 'Negombo, Sri Lanka', year: '2024', aspect: '3/4' },
   { id: 9, cat: 'Destination', src: '/images/id9.jpg', couple: 'Isla & Theo', location: 'Santorini, Greece', year: '2025', aspect: '3/4' },
-  { id: 10, cat: 'Details', src: '/images/id10.jpg', couple: 'Nira', location: 'Ella, Sri Lanka', year: '3 years', aspect: '3/4' },
-  { id: 11, cat: 'Ceremony', src: '/images/id11.jpg', couple: 'Aria & Kian', location: 'Colombo, Sri Lanka', year: '2026', aspect: '3/4' },
+  { id: 10, cat: 'Engagement', src: '/images/id10.jpg', couple: 'Nira', location: 'Ella, Sri Lanka', year: '3 years', aspect: '3/4' },
+  { id: 11, cat: 'Traditional', src: '/images/id11.jpg', couple: 'Aria & Kian', location: 'Colombo, Sri Lanka', year: '2026', aspect: '3/4' },
 ]
 
 export default function Work() {

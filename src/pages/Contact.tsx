@@ -176,17 +176,17 @@ export default function Contact() {
 
           {/* Image */}
           <div style={{ overflow: 'hidden', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-            <img src={`${U}/photo-1519741497674-611481863552?w=700&q=80`} alt="Couple" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
+            <img src={'/images/couple2.jpg'} alt="Couple" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
           </div>
 
           {/* Contact info */}
           <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 1.5vw, 0.62rem)', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.5rem' }}>Direct Contact</p>
             {[
-              { label: 'Email', val: 'hello@sakaphoto.com' },
-              { label: 'Phone', val: '+94 77 316 3807' },
-              { label: 'Studio', val: 'Colombo 03, Sri Lanka' },
-              { label: 'Hours', val: 'Mon–Sat, 9am – 6pm' },
+              { label: 'Email', val: 'studiodfocus10@gmail.com' },
+              { label: 'Phone', val: '+94 76 320 0883' },
+              { label: 'Studio', val: 'Dambulla Road, Ibbagamuwa, Kurunegala' },
+              { label: 'Hours', val: 'Mon–Sat, 8am – 6pm' },
             ].map(item => (
               <div key={item.label} style={{ display: 'flex', justifyContent: 'space-between', padding: 'clamp(0.7rem, 1.5vw, 0.9rem) 0', borderBottom: '1px solid var(--border)', gap: '1rem', flexWrap: 'wrap' }}>
                 <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.65rem, 1.5vw, 0.72rem)', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>{item.label}</span>
