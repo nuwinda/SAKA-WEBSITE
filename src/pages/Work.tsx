@@ -3,156 +3,165 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const U = 'https://images.unsplash.com'
 
-const categories = ['All', 'Traditional', 'Engagement', 'Portraits', 'Events', 'Destination']
+const categories = ['All', 'Traditional', 'Engagement', 'Homecoming', 'Events', 'Birthdays' ]
 
 // Album data: 10 images per couple
 const coupleAlbums: Record<string, { couple: string; location: string; year: string; images: string[] }> = {
-  'Sanka & Dev': {
-    couple: 'Sanka & Dev',
-    location: 'Colombo, Sri Lanka',
-    year: '2026',
+
+  'Darshana & Sachini': {
+    couple: 'Darshana & Sachini',
+    location: 'Ibbagamuwa, Sri Lanka',
+    year: '2026 Apr',
     images: [
-      '/images/id1.jpg', `${U}/photo-1519741497674-611481863552?w=800&q=80`,
-      `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`, `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`,
-      `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`, `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`
+      '/images/works/Darshan&Sachini1.jpg', '/images/works/Darshan&Sachini2.jpg', '/images/works/Darshan&Sachini3.jpg', '/images/works/Darshan&Sachini4.jpg', '/images/works/Darshan&Sachini5.jpg',
+      '/images/works/Darshan&Sachini6.jpg', '/images/works/Darshan&Sachini7.jpg', '/images/works/Darshan&Sachini8.jpg', '/images/works/Darshan&Sachini9.jpg', '/images/works/Darshan&Sachini10.jpg',
     ]
   },
-  'Priya & Kai': {
-    couple: 'Priya & Kai',
-    location: 'Galle, Sri Lanka',
-    year: '2025',
+  'Vishmi & Migara': {
+    couple: 'Vishmi & Migara',
+    location: 'Ibbagamuwa, Sri Lanka',
+    year: '2026 Mar',
     images: [
-      '/images/id2.jpg', `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`,
-      `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`
+      '/images/works/Vishmi&Migara1.jpg', '/images/works/Vishmi&Migara2.jpg', '/images/works/Vishmi&Migara3.jpg', '/images/works/Vishmi&Migara4.jpg', '/images/works/Vishmi&Migara5.jpg',
+      '/images/works/Vishmi&Migara6.jpg', '/images/works/Vishmi&Migara7.jpg', '/images/works/Vishmi&Migara8.jpg', '/images/works/Vishmi&Migara9.jpg', '/images/works/Vishmi&Migara10.jpg',
     ]
   },
-  'Nisha & Arjun': {
-    couple: 'Nisha & Arjun',
-    location: 'Kandy, Sri Lanka',
-    year: '2024',
+  'Wikum & Sachini': {
+    couple: 'Wikum & Sachini',
+    location: 'Mawathagama, Sri Lanka',
+    year: '2026 Mar',
     images: [
-      '/images/id3.jpg', `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`
+      '/images/works/Wikum&Sachini1.jpg', '/images/works/Wikum&Sachini2.jpg', '/images/works/Wikum&Sachini3.jpg', '/images/works/Wikum&Sachini4.jpg', '/images/works/Wikum&Sachini5.jpg',
+      '/images/works/Wikum&Sachini6.jpg', '/images/works/Wikum&Sachini7.jpg', '/images/works/Wikum&Sachini8.jpg', '/images/works/Wikum&Sachini9.jpg', '/images/works/Wikum&Sachini10.jpg',
     ]
   },
-  'Sophie & Malik': {
-    couple: 'Sophie & Malik',
-    location: 'Maldives',
-    year: '2025',
+  'Dilshani': {
+    couple: 'Dilshani',
+    location: 'Ibbagamuwa, Sri Lanka',
+    year: '2026 Feb',
     images: [
-      '/images/id4.jpg', `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`
+      '/images/works/DilshaniBS1.jpg', '/images/works/DilshaniBS2.jpg', '/images/works/DilshaniBS3.jpg', '/images/works/DilshaniBS4.jpg', '/images/works/DilshaniBS5.jpg',
+      '/images/works/DilshaniBS6.jpg', '/images/works/DilshaniBS7.jpg', '/images/works/DilshaniBS8.jpg', '/images/works/DilshaniBS9.jpg', '/images/works/DilshaniBS10.jpg',
     ]
   },
-  'Zara & Ishan': {
-    couple: 'Zara & Ishan',
-    location: 'Sigiriya, Sri Lanka',
-    year: '2024',
+  'Darshi & Jalitha': {
+    couple: 'Darshi & Jalitha',
+    location: 'Ibbagamuwa, Sri Lanka',
+    year: '2026 Jan',
     images: [
-      '/images/id5.jpg', `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`,
-      `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`
+      '/images/works/Darshi&Jalitha1.jpg', '/images/works/Darshi&Jalitha2.jpg', '/images/works/Darshi&Jalitha3.jpg', '/images/works/Darshi&Jalitha4.jpg', '/images/works/Darshi&Jalitha5.jpg',
+      '/images/works/Darshi&Jalitha6.jpg', '/images/works/Darshi&Jalitha7.jpg', '/images/works/Darshi&Jalitha8.jpg', '/images/works/Darshi&Jalitha9.jpg', '/images/works/Darshi&Jalitha10.jpg',
     ]
   },
-  'Maya & Rohan': {
-    couple: 'Maya & Rohan',
-    location: 'Colombo, Sri Lanka',
-    year: '2025',
+  'LittlePrinces': {
+    couple: 'LittlePrinces',
+    location: 'Kurunegala, Sri Lanka',
+    year: '2025 Dec',
     images: [
-      '/images/id6.jpg', `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`
+      '/images/works/LittlePrinces1.jpg', '/images/works/LittlePrinces2.jpg', '/images/works/LittlePrinces3.jpg', '/images/works/LittlePrinces4.jpg', '/images/works/LittlePrinces5.jpg',
+      '/images/works/LittlePrinces6.jpg', '/images/works/LittlePrinces7.jpg', '/images/works/LittlePrinces8.jpg', '/images/works/LittlePrinces9.jpg', '/images/works/LittlePrinces10.jpg',
     ]
   },
-  'Leila & Soren': {
-    couple: 'Leila & Soren',
-    location: 'Bali, Indonesia',
-    year: '2025',
+  'Himashi': {
+    couple: 'Himashi',
+    location: 'Ibbagamuwa, Sri Lanka',
+    year: '2025 Nov',
     images: [
-      '/images/id7.jpg', `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`
+      '/images/works/HBridal1.jpg', '/images/works/HBridal2.jpg', '/images/works/HBridal3.jpg', '/images/works/HBridal4.jpg', '/images/works/HBridal5.jpg',
+      '/images/works/HBridal6.jpg', '/images/works/HBridal7.jpg', '/images/works/HBridal8.jpg', '/images/works/HBridal9.jpg', '/images/works/HBridal10.jpg',
     ]
   },
-  'Ananya & Vikram': {
-    couple: 'Ananya & Vikram',
+  'Nimeshi & Tharaka': {
+    couple: 'Nimeshi & Tharaka',
+    location: 'Ibbagamuwa, Sri Lanka',
+    year: '2025 Nov',
+    images: [
+      '/images/works/NT1.jpg', '/images/works/NT2.jpg', '/images/works/NT3.jpg', '/images/works/NT4.jpg', '/images/works/NT5.jpg',
+      '/images/works/NT6.jpg', '/images/works/NT7.jpg', '/images/works/NT8.jpg', '/images/works/NT9.jpg', '/images/works/NT10.jpg',
+    ]
+  },
+  'Visalya & Asanka': {
+    couple: 'Visalya & Asanka',
+    location: 'Kurunegala, Sri Lanka',
+    year: '2025 Oct',
+    images: [
+      '/images/works/VA1.jpg', '/images/works/VA2.jpg', '/images/works/VA3.jpg', '/images/works/VA4.jpg', '/images/works/VA5.jpg',
+      '/images/works/VA6.jpg', '/images/works/VA7.jpg', '/images/works/VA8.jpg', '/images/works/VA9.jpg', '/images/works/VA10.jpg',
+    ]
+  },
+  'Pramodya': {
+    couple: 'Pramodya',
+    location: 'Kurunegala, Sri Lanka',
+    year: '2025 Oct',
+    images: [
+      '/images/works/PBS1.jpg', '/images/works/PBS2.jpg', '/images/works/PBS3.jpg', '/images/works/PBS4.jpg', '/images/works/PBS5.jpg',
+      '/images/works/PBS6.jpg', '/images/works/PBS7.jpg', '/images/works/PBS8.jpg', '/images/works/PBS9.jpg', '/images/works/PBS10.jpg',
+    ]
+  },
+  
+  'Shalika & Madushanka': {
+    couple: 'Shalika & Madushanka',
+    location: 'Kurunegala, Sri Lanka',
+    year: '2025 Sep',
+    images: [
+      '/images/works/SM1.jpg', '/images/works/SM2.jpg', '/images/works/SM3.jpg', '/images/works/SM4.jpg', '/images/works/SM5.jpg',
+      '/images/works/SM6.jpg', '/images/works/SM7.jpg', '/images/works/SM8.jpg', '/images/works/SM9.jpg', '/images/works/SM10.jpg',
+    ]
+  },
+  'Prabodhya & Dananjaya': {
+    couple: 'Prabodhya & Dananjaya',
     location: 'Negombo, Sri Lanka',
-    year: '2024',
+    year: '2025 Sep',
     images: [
-      '/images/id8.jpg', `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`,
-      `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`
+      '/images/works/PD1.jpg', '/images/works/PD2.jpg', '/images/works/PD3.jpg', '/images/works/PD4.jpg', '/images/works/PD5.jpg',
+      '/images/works/PD6.jpg', '/images/works/PD7.jpg', '/images/works/PD8.jpg', '/images/works/PD9.jpg', '/images/works/PD10.jpg',
     ]
   },
-  'Isla & Theo': {
-    couple: 'Isla & Theo',
-    location: 'Santorini, Greece',
-    year: '2025',
+  'Hansini & Mahendra': {
+    couple: 'Hansini & Mahendra',
+    location: 'Kurunegala, Sri Lanka',
+    year: '2025 Jun',
     images: [
-      '/images/id9.jpg', `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`
+      '/images/works/HM1.jpg', '/images/works/HM2.jpg', '/images/works/HM3.jpg', '/images/works/HM4.jpg', '/images/works/HM5.jpg',
+      '/images/works/HM6.jpg'
     ]
   },
-  'Nira': {
-    couple: 'Nira',
+  'Prasadini & Thimendra': {
+    couple: 'Prasadini & Thimendra',
     location: 'Ella, Sri Lanka',
-    year: '3 years',
+    year: '2025 Jun',
     images: [
-      '/images/id10.jpg', `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`,
-      `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`,
-      `${U}/photo-1519741497674-611481863552?w=800&q=80`, `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`
+      '/images/works/PT1.jpg', '/images/works/PT2.jpg', '/images/works/PT3.jpg', '/images/works/PT4.jpg', '/images/works/PT5.jpg',
+      '/images/works/PT6.jpg', '/images/works/PT7.jpg', '/images/works/PT8.jpg', '/images/works/PT9.jpg', '/images/works/PT10.jpg', 
     ]
   },
-  'Aria & Kian': {
-    couple: 'Aria & Kian',
-    location: 'Colombo, Sri Lanka',
-    year: '2026',
+  'Dewmi & Dinesh': {
+    couple: 'Dewmi & Dinesh',
+    location: 'Ibbagamuwa, Kurunegala',
+    year: '2025 May',
     images: [
-      '/images/id11.jpg', `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`,
-      `${U}/photo-1606216794074-735e91aa2c92?w=800&q=80`, `${U}/photo-1544078751-58fee2d8ab1d?w=800&q=80`,
-      `${U}/photo-1519075622773-4f65cbb2e1bc?w=800&q=80`, `${U}/photo-1511285560929-80b456fea0bc?w=800&q=80`,
-      `${U}/photo-1520854221256-17451cc331bf?w=800&q=80`, `${U}/photo-1519741497674-611481863552?w=800&q=80`
+      '/images/works/DD1.jpg', '/images/works/DD2.jpg', '/images/works/DD3.jpg', '/images/works/DD4.jpg', '/images/works/DD5.jpg',
+      '/images/works/DD6.jpg', '/images/works/DD7.jpg', '/images/works/DD8.jpg', '/images/works/DD9.jpg', '/images/works/DD10.jpg',
     ]
   }
 }
 
 const works = [
-  { id: 1, cat: 'Traditional', src: '/images/id1.jpg', couple: 'Sanka & Dev', location: 'Colombo, Sri Lanka', year: '2026', aspect: '3/4' },
-  { id: 2, cat: 'Engagement', src: '/images/id2.jpg', couple: 'Priya & Kai', location: 'Galle, Sri Lanka', year: '2025', aspect: '3/4' },
-  { id: 3, cat: 'Traditional', src: '/images/id3.jpg', couple: 'Nisha & Arjun', location: 'Kandy, Sri Lanka', year: '2024', aspect: '3/4' },
-  { id: 4, cat: 'Destination', src: '/images/id4.jpg', couple: 'Sophie & Malik', location: 'Maldives', year: '2025', aspect: '3/4' },
-  { id: 5, cat: 'Events', src: '/images/id5.jpg', couple: 'Zara & Ishan', location: 'Sigiriya, Sri Lanka', year: '2024', aspect: '3/4' },
-  { id: 6, cat: 'Engagement', src: '/images/id6.jpg', couple: 'Maya & Rohan', location: 'Colombo, Sri Lanka', year: '2025', aspect: '3/4' },
-  { id: 7, cat: 'Traditional', src: '/images/id7.jpg', couple: 'Leila & Soren', location: 'Bali, Indonesia', year: '2025', aspect: '3/4' },
-  { id: 8, cat: 'Events', src: '/images/id8.jpg', couple: 'Ananya & Vikram', location: 'Negombo, Sri Lanka', year: '2024', aspect: '3/4' },
-  { id: 9, cat: 'Destination', src: '/images/id9.jpg', couple: 'Isla & Theo', location: 'Santorini, Greece', year: '2025', aspect: '3/4' },
-  { id: 10, cat: 'Engagement', src: '/images/id10.jpg', couple: 'Nira', location: 'Ella, Sri Lanka', year: '3 years', aspect: '3/4' },
-  { id: 11, cat: 'Traditional', src: '/images/id11.jpg', couple: 'Aria & Kian', location: 'Colombo, Sri Lanka', year: '2026', aspect: '3/4' },
+  { id: 15, cat: 'Traditional', src: '/images/works/Darshan&Sachini1.jpg', couple: 'Darshana & Sachini', location: 'Ibbagamuwa, Sri Lanka', year: '2026 Apr', aspect: '3/4' },
+  { id: 14, cat: 'Engagement', src: '/images/works/Vishmi&Migara1.jpg', couple: 'Vishmi & Migara', location: 'Ibbagamuwa, Sri Lanka', year: '2026 Mar', aspect: '3/4' },
+  { id: 13, cat: 'Engagement', src: '/images/works/Wikum&Sachini1.jpg', couple: 'Wikum & Sachini', location: 'Mawathagama, Sri Lanka', year: '2026 Mar', aspect: '3/4' },
+  { id: 12, cat: 'Birthdays', src: '/images/works/DilshaniBS1.jpg', couple: 'Dilshani', location: 'Ibbagamuwa, Sri Lanka', year: '2026 Feb', aspect: '3/4' },
+  { id: 11, cat: 'Engagement', src: '/images/works/Darshi&Jalitha1.jpg', couple: 'Darshi & Jalitha', location: 'Ibbagamuwa, Sri Lanka', year: '2026 Jan', aspect: '3/4' },
+  { id: 10, cat: 'Birthdays', src: '/images/works/LittlePrinces1.jpg', couple: 'LittlePrinces', location: 'Kurunegala, Sri Lanka', year: '2025 Dec', aspect: '3/4' },
+  { id: 9, cat: 'Event', src: '/images/works/HBridal1.jpg', couple: 'Himashi', location: 'Ibbagamuwa, Sri Lanka', year: '2025 Nov', aspect: '3/4' },
+  { id: 8, cat: 'Engagement', src: '/images/works/NT2.jpg', couple: 'Nimeshi & Tharaka', location: 'Ibbagamuwa, Sri Lanka', year: '2025 Nov', aspect: '3/4' },
+  { id: 7, cat: 'Homecoming', src: '/images/works/VA1.jpg', couple: 'Visalya & Asanka', location: 'Kurunegala, Sri Lanka', year: '2025 Oct', aspect: '3/4' },
+  { id: 6, cat: 'Birthdays', src: '/images/works/PBS1.jpg', couple: 'Pramodya', location: 'Kurunegala, Sri Lanka', year: '2025 Oct', aspect: '3/4' },
+  { id: 5, cat: 'Traditional', src: '/images/works/SM1.jpg', couple: 'Shalika & Madushanka', location: 'Kurunegala, Sri Lanka', year: '2025 Sep', aspect: '3/4' },
+  { id: 4, cat: 'Homecoming', src: '/images/works/PD1.jpg', couple: 'Prabodhya & Dananjaya', location: 'Negombo, Sri Lanka', year: '2025 Sep', aspect: '3/4' },
+  { id: 3, cat: 'Homecoming', src: '/images/works/HM1.jpg', couple: 'Hansini & Mahendra', location: 'Kurunegala, Sri lanka', year: '2025 Jun', aspect: '3/4' },
+  { id: 2, cat: 'Traditional', src: '/images/works/PT1.jpg', couple: 'Prasadini & Thimendra', location: 'Kurunegala, Sri Lanka', year: '2025 Jun', aspect: '3/4' },
+  { id: 1, cat: 'Traditional', src: '/images/works/DD1.jpg', couple: 'Dewmi & Dinesh', location: 'Ibbagamuwa, Kurunegala', year: '2025 May', aspect: '3/4' },
 ]
 
 export default function Work() {

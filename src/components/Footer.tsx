@@ -33,9 +33,9 @@ export default function Footer() {
         <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.65rem)', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.25rem' }}>Connect</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
-            { name: 'Instagram', url: 'https://www.instagram.com/sakaphoto/' }, 
+            { name: 'Instagram', url: 'https://www.instagram.com/studio_d_focus/' }, 
             { name: 'TikTok', url: 'https://www.tiktok.com/@sakaphoto' },
-            { name: 'Facebook', url: 'https://www.facebook.com/sakaphoto' },
+            { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=100081855793217' },
             { name: 'Email', url: 'mailto:hello@sakaphoto.com' }
           ].map(item => (
             <a key={item.name} href={item.url} style={{ fontSize: 'clamp(0.75rem, 1.8vw, 0.8rem)', color: 'var(--text-secondary)', letterSpacing: '0.05em', transition: 'color 0.3s', wordBreak: 'break-all' }}
