@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
+const U = 'https://images.unsplash.com'
 
 const fade = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } }
 
@@ -192,6 +193,11 @@ const process = [
 
 export default function Offerings() {
   const [expanded, setExpanded] = useState<string | null>(null)
+  const navigate = useNavigate()
+
+  const bookPackage = (packageName: string) => {
+    navigate(`/contact?package=${encodeURIComponent(packageName)}`)
+  }
 
   return (
     <div style={{ paddingTop: 'clamp(4rem, 8vw, 7rem)', minHeight: '100vh' }}>
@@ -279,19 +285,23 @@ export default function Offerings() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'stretch', marginTop: 'auto', borderTop: `1px solid ${tier.color}33`, paddingTop: '1.5rem' }}>
                 <p style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.2rem, 3vw, 1.5rem)', color: tier.color, fontWeight: 400 }}>{tier.price}</p>
-                <Link to="/contact" style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: 'clamp(0.6rem, 1.2vw, 0.68rem)',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  color: tier.color,
-                  background: tier.featured ? `rgba(255,215,0,0.1)` : 'transparent',
-                  border: `1.5px solid ${tier.color}`,
-                  padding: 'clamp(0.75rem, 1.5vw, 0.9rem)',
-                  textAlign: 'center',
-                  transition: 'all 0.3s',
-                  fontWeight: 500,
-                }}
+                <button
+                  onClick={() => bookPackage(tier.name)}
+                  style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: 'clamp(0.6rem, 1.2vw, 0.68rem)',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    color: tier.color,
+                    background: tier.featured ? `rgba(255,215,0,0.1)` : 'transparent',
+                    border: `1.5px solid ${tier.color}`,
+                    padding: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                    textAlign: 'center',
+                    transition: 'all 0.3s',
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    width: '100%',
+                  }}
                   onMouseEnter={e => {
                     const el = e.currentTarget;
                     el.style.background = `rgba(${tier.color === '#FFD700' ? '255, 215, 0' : tier.color === '#C0C0C0' ? '192, 192, 192' : '229, 228, 226'}, 0.15)`;
@@ -300,7 +310,7 @@ export default function Offerings() {
                     const el = e.currentTarget;
                     el.style.background = tier.featured ? `rgba(255,215,0,0.1)` : 'transparent';
                   }}
-                >Inquire Now</Link>
+                >Book This Package</button>
               </div>
             </motion.div>
           ))}
@@ -354,15 +364,20 @@ export default function Offerings() {
 
                 <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'stretch' }}>
                   <p style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: 'var(--cream)', fontWeight: 400 }}>{pkg.price}</p>
-                  <Link to="/contact" style={{
-                    fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.3vw, 0.65rem)', letterSpacing: '0.15em', textTransform: 'uppercase',
-                    color: pkg.featured ? 'var(--gold)' : 'var(--text-secondary)',
-                    borderBottom: `1px solid ${pkg.featured ? 'var(--gold)' : 'var(--border)'}`,
-                    paddingBottom: '2px', transition: 'all 0.3s', textAlign: 'center'
-                  }}
+                  <button
+                    onClick={() => bookPackage(pkg.name)}
+                    style={{
+                      fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.3vw, 0.65rem)', letterSpacing: '0.15em', textTransform: 'uppercase',
+                      color: pkg.featured ? 'var(--gold)' : 'var(--text-secondary)',
+                      borderBottom: `1px solid ${pkg.featured ? 'var(--gold)' : 'var(--border)'}`,
+                      background: 'transparent', border: 'none',
+                      borderBottom: `1px solid ${pkg.featured ? 'var(--gold)' : 'var(--border)'}`,
+                      paddingBottom: '2px', transition: 'all 0.3s', textAlign: 'center',
+                      cursor: 'pointer', width: '100%',
+                    }}
                     onMouseEnter={e => { const el = e.currentTarget; el.style.color = 'var(--gold)'; el.style.borderColor = 'var(--gold)' }}
                     onMouseLeave={e => { const el = e.currentTarget; el.style.color = pkg.featured ? 'var(--gold)' : 'var(--text-secondary)'; el.style.borderColor = pkg.featured ? 'var(--gold)' : 'var(--border)' }}
-                  >Inquire</Link>
+                  >Book This Package</button>
                 </div>
               </div>
             </motion.div>
