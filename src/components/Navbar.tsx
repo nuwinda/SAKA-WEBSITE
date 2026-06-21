@@ -4,18 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/#about', label: 'About Us' },
   { to: '/work', label: 'Recent Work' },
   { to: '/offerings', label: 'Offerings' },
   { to: '/contact', label: 'Contact' },
 ]
-
-const isLinkActive = (linkTo: string, currentPathname: string, currentHash: string) => {
-  if (linkTo.includes('#')) {
-    return currentPathname === '/' && currentHash === '#about'
-  }
-  return currentPathname === linkTo
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -53,30 +45,27 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div style={{ display: 'flex', gap: 'clamp(1.5rem, 4vw, 2.5rem)', alignItems: 'center' }}>
-          {links.map(l => {
-            const active = isLinkActive(l.to, location.pathname, location.hash)
-            return (
-              <Link key={l.to} to={l.to} style={{
-                fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', fontWeight: 400,
-                letterSpacing: '0.15em', textTransform: 'uppercase',
-                color: active ? 'var(--gold)' : 'var(--cream-muted)',
-                transition: 'color 0.3s',
-                position: 'relative',
-                whiteSpace: 'nowrap',
-              }}
-                onMouseEnter={e => { if (!active) (e.target as HTMLElement).style.color = 'var(--cream)' }}
-                onMouseLeave={e => { if (!active) (e.target as HTMLElement).style.color = 'var(--cream-muted)' }}
-              >
-                {l.label}
-                {active && (
-                  <motion.span layoutId="nav-indicator" style={{
-                    position: 'absolute', bottom: -4, left: 0, right: 0, height: 1,
-                    background: 'var(--gold)',
-                  }} />
-                )}
-              </Link>
-            )
-          })}
+          {links.map(l => (
+            <Link key={l.to} to={l.to} style={{
+              fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', fontWeight: 400,
+              letterSpacing: '0.15em', textTransform: 'uppercase',
+              color: location.pathname === l.to ? 'var(--gold)' : 'var(--cream-muted)',
+              transition: 'color 0.3s',
+              position: 'relative',
+              whiteSpace: 'nowrap',
+            }}
+              onMouseEnter={e => { if (location.pathname !== l.to) (e.target as HTMLElement).style.color = 'var(--cream)' }}
+              onMouseLeave={e => { if (location.pathname !== l.to) (e.target as HTMLElement).style.color = 'var(--cream-muted)' }}
+            >
+              {l.label}
+              {location.pathname === l.to && (
+                <motion.span layoutId="nav-indicator" style={{
+                  position: 'absolute', bottom: -4, left: 0, right: 0, height: 1,
+                  background: 'var(--gold)',
+                }} />
+              )}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile Burger */}
@@ -100,18 +89,15 @@ export default function Navbar() {
               background: 'rgba(13,12,10,0.98)',
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2.5rem',
             }}>
-            {links.map(l => {
-              const active = isLinkActive(l.to, location.pathname, location.hash)
-              return (
-                <Link key={l.to} to={l.to} style={{
-                  fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontWeight: 300,
-                  color: active ? 'var(--gold)' : 'var(--cream)',
-                  letterSpacing: '0.05em',
-                }}>
-                  {l.label}
-                </Link>
-              )
-            })}
+            {links.map(l => (
+              <Link key={l.to} to={l.to} style={{
+                fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontWeight: 300,
+                color: location.pathname === l.to ? 'var(--gold)' : 'var(--cream)',
+                letterSpacing: '0.05em',
+              }}>
+                {l.label}
+              </Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
