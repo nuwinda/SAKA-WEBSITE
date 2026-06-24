@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 
 // Initialize EmailJS with environment variable
@@ -28,9 +29,20 @@ type FormData = {
 }
 
 export default function Contact() {
+  const location = useLocation()
   const [form, setForm] = useState<FormData>({ name: '', email: '', partner: '', date: '', venue: '', package: '', message: '' })
   const [sent, setSent] = useState(false)
   const [faqOpen, setFaqOpen] = useState<number | null>(null)
+
+  // Pre-fill package if navigated from Offerings page
+  useEffect(() => {
+    const incoming = (location.state as { package?: string } | null)?.package
+    if (incoming) {
+      setForm(f => ({ ...f, package: incoming }))
+      // Clear the state so a page refresh doesn't re-apply it
+      window.history.replaceState({}, '')
+    }
+  }, [location.state])
 
   const update = (key: keyof FormData, val: string) => setForm(f => ({ ...f, [key]: val }))
 
@@ -160,10 +172,19 @@ export default function Contact() {
                       onBlur={e => (e.target as HTMLElement).style.borderColor = 'var(--border)'}
                     >
                       <option value="" style={{ background: 'var(--dark)' }}>Select a package</option>
-                      <option value="intimate" style={{ background: 'var(--dark)' }}>Intimate</option>
-                      <option value="full" style={{ background: 'var(--dark)' }}>Full Day</option>
-                      <option value="destination" style={{ background: 'var(--dark)' }}>Destination</option>
-                      <option value="unsure" style={{ background: 'var(--dark)' }}>Not sure yet</option>
+                      <optgroup label="── Premium Collections ──" style={{ background: 'var(--dark)', color: 'var(--gold)' }}>
+                        <option value="Silver Package" style={{ background: 'var(--dark)' }}>Silver Package — LKR 285,000</option>
+                        <option value="Gold Package" style={{ background: 'var(--dark)' }}>Gold Package — LKR 365,000</option>
+                        <option value="Platinum Package" style={{ background: 'var(--dark)' }}>Platinum Package — LKR 435,000</option>
+                      </optgroup>
+                      <optgroup label="── Additional Collections ──" style={{ background: 'var(--dark)', color: 'var(--gold)' }}>
+                        <option value="A Group Package" style={{ background: 'var(--dark)' }}>A Group — From LKR 115,000</option>
+                        <option value="B Group Package" style={{ background: 'var(--dark)' }}>B Group — From LKR 130,000</option>
+                        <option value="C Group Package" style={{ background: 'var(--dark)' }}>C Group — From LKR 159,000</option>
+                        <option value="D Group Package" style={{ background: 'var(--dark)' }}>D Group — From LKR 169,000</option>
+                        <option value="E Group Package" style={{ background: 'var(--dark)' }}>E Group — From LKR 198,000</option>
+                      </optgroup>
+                      <option value="Not sure yet" style={{ background: 'var(--dark)' }}>Not sure yet</option>
                     </select>
                   </div>
                 </div>
