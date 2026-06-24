@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
@@ -13,6 +13,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60)
@@ -21,6 +22,31 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => { setOpen(false); window.scrollTo(0, 0) }, [location.pathname])
+
+  // After navigating to home with #about hash, scroll to the section
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash === '#about') {
+      // Small delay to let the page render before scrolling
+      const timer = setTimeout(() => {
+        const el = document.getElementById('about')
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+      return () => clearTimeout(timer)
+    }
+  }, [location])
+
+  function handleAboutClick(e: React.MouseEvent) {
+    e.preventDefault()
+    setOpen(false)
+    if (location.pathname === '/') {
+      // Already on home — just smooth scroll
+      const el = document.getElementById('about')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      // On another page — navigate home with hash so the effect above fires
+      navigate('/#about')
+    }
+  }
 
   return (
     <>
@@ -66,6 +92,22 @@ export default function Navbar() {
               )}
             </Link>
           ))}
+          {/* About Us — scrolls to #about section on home page */}
+          <a href="/#about" onClick={handleAboutClick} style={{
+            fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', fontWeight: 400,
+            letterSpacing: '0.15em', textTransform: 'uppercase',
+            color: 'var(--cream-muted)',
+            transition: 'color 0.3s',
+            position: 'relative',
+            whiteSpace: 'nowrap',
+            cursor: 'pointer',
+            textDecoration: 'none',
+          }}
+            onMouseEnter={e => { (e.target as HTMLElement).style.color = 'var(--cream)' }}
+            onMouseLeave={e => { (e.target as HTMLElement).style.color = 'var(--cream-muted)' }}
+          >
+            About Us
+          </a>
         </div>
 
         {/* Mobile Burger */}
@@ -98,6 +140,15 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <a href="/#about" onClick={handleAboutClick} style={{
+              fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontWeight: 300,
+              color: 'var(--cream)',
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+              cursor: 'pointer',
+            }}>
+              About Us
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

@@ -12,7 +12,7 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section style={{
+    <section id="about" style={{
       padding: 'clamp(3rem, 10vw, 9rem) clamp(1rem, 5vw, 5rem)',
       background: 'var(--surface)',
     }}>
