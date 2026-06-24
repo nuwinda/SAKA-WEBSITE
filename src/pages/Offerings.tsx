@@ -366,7 +366,7 @@ export default function Offerings() {
                     color: pkg.featured ? 'var(--gold)' : 'var(--text-secondary)',
                     borderBottom: `1px solid ${pkg.featured ? 'var(--gold)' : 'var(--border)'}`,
                     background: 'transparent', border: 'none',
-                    borderBottom: `1px solid ${pkg.featured ? 'var(--gold)' : 'var(--border)'}`,
+                    
                     paddingBottom: '2px', transition: 'all 0.3s', textAlign: 'center',
                     cursor: 'pointer', width: '100%',
                   }}
