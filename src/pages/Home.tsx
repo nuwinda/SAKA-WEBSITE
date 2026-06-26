@@ -4,11 +4,11 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import AboutSection from '../components/AboutSection'
 
 
-const heroImg = '/images/hero.jpg' // Local hero image for better control over composition and loading
+const heroImg = '/images/hero2.jpg' // Local hero image for better control over composition and loading
 const couple1 = '/images/couple1.jpg' // Local image to ensure optimal cropping and aspect ratio
-const couple2 = 'images/couple2.jpg' // Local image for better quality and consistency
-const couple3 = '/images/hero.jpg' // Reusing hero image for visual consistency; ideally should be a different image but kept for demo
-const portrait1 = '/images/couple3.jpg' // Local portrait for better control over composition; ideally should be a different image but kept for demo
+const couple2 = 'images/couple3.jpg' // Local image for better quality and consistency
+const couple3 = '/images/couple2.jpg' // Reusing hero image for visual consistency; ideally should be a different image but kept for demo
+const portrait1 = '/images/couple.jpg' // Local portrait for better control over composition; ideally should be a different image but kept for demo
 const portrait2 = '/images/couple4.jpg' // Local portrait for better control; ideally should be a different image but kept for demo
 
 const fade = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
