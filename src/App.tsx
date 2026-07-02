@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -20,6 +22,8 @@ export default function App() {
     <>
       <Navbar />
       <WhatsAppButton />
+      <Analytics />
+      <SpeedInsights />
       <AnimatePresence mode="wait">
         <motion.main key={location.pathname} variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.4 }}>
           <Routes location={location}>
